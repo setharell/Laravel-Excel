@@ -4,6 +4,7 @@ namespace Maatwebsite\Excel;
 
 use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\FromView;
@@ -119,7 +120,7 @@ class QueuedWriter
         TemporaryFile $temporaryFile,
         string $writerType,
         int $sheetIndex
-    ): Collection {
+    ): Enumerable {
         return $export
             ->collection()
             ->chunk($this->getChunkSize($export))
